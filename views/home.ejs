@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+
+
+   <nav class="navbar bg-dark">
+    <div class="container-fluid col-sm-10">
+      <a href="/"><h5 class="navbar-brand text-light" href="#"><strong style="text-transform: capitalize"><%= title %></strong></h5></a>
+      <div>
+       <a class="btn btn-success" href="/add-posts" role="button">Add Posts</a>
+       <a class="btn btn-success" href="/logout" role="button">Log Out</a>
+      </div>
+    </div>
+  </nav>
+
+
+    <div class="container mt-5">
+
+      <% if (messages.length > 0) {%>
+        <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+          <%= messages %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% }%>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-3 mx-auto">
+          <% if (profile) {%>
+          <% if (profile.avatar == ""){ %>
+          <img src="img/avatar-gef5e9dfe9_640.png" class="img-thumbnail" alt="..." style="width: 150px; height: 150px; border-radius: 50%">
+          <% } else { %>
+          <img src="<%= profile.avatar %>" class="img-thumbnail" alt="..." style="width: 150px; height: 150px; border-radius: 50%">
+          <% } %>
+          <% } else { %>
+          <img src="img/avatar-gef5e9dfe9_640.png" class="img-thumbnail" alt="..." style="width: 150px; height: 150px; border-radius: 50%">
+          <% } %>
+          
+        </div>
+          
+             <div class="col-sm-12 col-md-9">
+              <h5><strong><%= user %></strong></h5>
+               <% if (profile) { %>
+              <div class="row">
+                <% if (profile.bio !== "") { %>
+                <p><%= profile.bio %></p>
+                <% } else { %>
+                <p>Please add a bio in your profile</p>
+                <% } %>
+              </div>
+              <div class="row">
+                <p><a href="/edit-profile/<%= profile.id %>">Edit Profile</a></p>
+                <p><a href="/edit-photo/<%= profile.id %>">Change Photo</a></p>
+              </div>
+              <% } else { %>
+              <div class="d-flex align-items-center">
+                <p>You don't have a profile yet. Set Up A Profile.
+                  <a class="mx-4" href="/settings">Set Profile</a></p>
+              </div>
+              <% } %>
+            </div>
+  
+
+    <div class="container my-5">
+      <div class="row">
+      <% if(posts.length > 0){%>
+
+      <% posts.forEach((post) => {%>
+      <div class="col-sm-12 col-md-4 col-lg-3 mt-5 d-flex justify-self-center">
+        <a href="/post/<%= username %>/<%= post._id %>"><img src="<%= post.image %>" alt="poster"  style="width: 240px; height: 240px;"></a>
+      </div>
+      <% }) %>
+      <% } else { %>
+      <h4 class="text-center fw-light fst-itali">No New Post At The Moment<h4>
+      <% } %>
+      </div>
+      
+    </div>
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>

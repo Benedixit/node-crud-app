@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+    <%- include('./partials/navbar'); %>
+
+    <div class="container mt-3 col-sm-5">
+      <form action="/update-bio/<%= id %>" method="post">
+
+        <div class="mb-3">
+          <label for="bio" class="form-label">Bio</label>
+          <textarea class="form-control" id="bio" name="bio" aria-describedby="emailHelp"><%= bio %></textarea>
+        </div>
+
+          <button type="submit" class="btn btn-success">Update Bio</button>
+
+          <a href="/delete-user" role="button" class="btn btn-danger">Delete User</a>
+
+       
+
+      </form>
+
+    </div>
+  </div>
+
+
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>

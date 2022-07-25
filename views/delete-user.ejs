@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+    <%- include('./partials/navbar'); %>
+
+    <div class="container mt-3 col-sm-5">
+      <p>I am no longer interested in keeping this account. Please Delete.<p> 
+      	<p>Note that You will not have access to this account again<p> 
+      	<p><a href="/delete-user/<%= user %>/<%= id %>" role="button" class="btn btn-danger">Delete My Account</a></p>
+    </div>
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>

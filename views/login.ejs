@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+   <nav class="navbar bg-dark">
+    <div class="container-fluid col-sm-9">
+      <h5 class="navbar-brand text-light mx-auto" href="#"><strong style="text-transform: capitalize"><%= title %></strong></h5>
+    </div>
+  </nav>
+    <div class="container mt-3 col-sm-5">
+      <% if (messages.length > 0) {%>
+        <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+          <%= messages %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }%>
+
+      <form action="/login" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" name= "username" class="form-control" id="exampleInputEmail1">
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" name = "password" class="form-control" id="exampleInputPassword1">
+        </div>
+
+        <button type="submit" class="btn btn-success">Log In</button>
+      </form>
+      <div class="mx-auto mt-4">
+        <p>Sign Up Here If You Don't Have An Account. <a href="/register">Sign Up</a></p>
+      </div>
+    </div>
+
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+    <nav class="navbar bg-dark">
+      <div class="container-fluid col-sm-9">
+        <h5 class="navbar-brand text-light mx-auto" href="#"><strong style="text-transform: capitalize"><%= title %></strong></h5>
+      </div>
+    </nav>
+
+    <div class="container mt-3 col-sm-5">
+      <% if (messages.length > 0) {%>
+        <div class="alert alert-info alert-dismissible fade show mt-3" role="alert">
+          <%= messages %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <% }%>
+
+        
+      <form action="/register" method="post">
+        <div class="mb-3">
+          <label for="name" class="form-label">Full Name</label>
+          <input type="text" name= "name" class="form-control" id="name" required>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" name= "username" class="form-control" id="username" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" name= "email" class="form-control" id="email" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" name = "password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-success">Sign Up</button>
+      </form>
+      <div class="mx-auto mt-4">
+        <p>Log In Here If You Have An Account. <a href="/login">Log In</a></p>
+      </div>
+      
+    </div>
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>

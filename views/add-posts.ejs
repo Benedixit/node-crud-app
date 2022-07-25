@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+    <%- include('./partials/navbar'); %>
+
+    <div class="container mt-3 col-sm-5">
+      <form action="/posts" method="post" enctype="multipart/form-data">
+
+        <div class="mb-3">
+          <label for="formFile" class="form-label">Posts</label>
+          <input class="form-control" type="file" id="formFile" name="image" accept="image/png, image/jpeg" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="bio" class="form-label">Caption</label>
+          <textarea class="form-control" id="bio" name="caption" aria-describedby="emailHelp"></textarea>
+        </div>
+   
+        <button type="submit" class="btn btn-success">Add this new post</button>
+      </form>
+    </div>
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>

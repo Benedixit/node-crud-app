@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+
+
+   <nav class="navbar bg-dark">
+    <div class="container-fluid col-sm-10">
+      <a href="/"><h5 class="navbar-brand text-light" href="#"><strong style="text-transform: capitalize"><%= title %></strong></h5></a>
+      <div>
+       <a class="btn btn-success" href="/add-posts" role="button">Add Posts</a>
+       <a class="btn btn-success" href="/logout" role="button">Log Out</a>
+      </div>
+    </div>
+  </nav>
+
+      <div class="row mt-5 d-flex justify-content-sm-center align-items-center">
+        <img src="/<%= image %>" alt="poster" style="height: 400px; width: 400px">
+        <h6 class="text-center my-2"><%= caption %></h6>
+        <div class="col-6 d-flex justify-content-sm-center align-items-center">
+          <a href="/post/delete/<%= id %>" role="button" class="btn btn-success">Delete Post</a>
+        </div>
+      </div>
+      
+
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>

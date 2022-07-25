@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <%- include('./partials/header'); %>
+  <body>
+    <%- include('./partials/navbar'); %>
+
+    <div class="container mt-3 col-sm-5">
+      <form action="/update-photo/<%= id %>" method="post" enctype="multipart/form-data">
+  
+
+          <div class="mb-3">
+            <label for="formFile" class="form-label">Profile Picture</label>
+            <input class="form-control" name = "avatar" type="file" id="formFile" accept="image/png, image/jpeg" required="">
+          </div>
+
+
+        <button type="submit" class="btn btn-success">Submit</button>
+         <a href="/delete-photo/<%= id %>" role="button" class="btn btn-danger">Delete User</a>
+         <a href="/" role="button" class="btn btn-danger">Go Back</a>
+      </form>
+    </div>
+    <%- include('./partials/footer'); %>
+
+    
+  </body>
+</html>
