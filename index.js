@@ -6,6 +6,7 @@ const passport = require('passport')
 const session = require('express-session')
 const flash = require('connect-flash')
 const routes = require('./routes')
+const port = process.env.PORT || 8080
 const User = require('./models/User')
 require('dotenv').config()
 
@@ -39,7 +40,7 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-db.once('open', (req, res)=>{
+db.once('port', (req, res)=>{
 	app.listen(3000, ()=>{
 		console.log("Loading")
 	})
