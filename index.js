@@ -40,8 +40,8 @@ passport.use(User.createStrategy())
 passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
-db.once('port', (req, res)=>{
-	app.listen(3000, ()=>{
+db.once('once', (req, res)=>{
+	app.listen(port, ()=>{
 		console.log("Loading")
 	})
 })
