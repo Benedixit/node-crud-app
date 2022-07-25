@@ -14,9 +14,9 @@ require('dotenv').config()
 app.use(flash());
 
 app.use(session({
-  secret: 'Rn3AWfAakN6tpFhNcN',
+  secret: 'my secret key',
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   cookie: { maxAge: 60 * 60 * 1000 }
 }));
 
